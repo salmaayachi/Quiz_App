@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import './question.dart';
+import './answer.dart';
 
 void main() {
   runApp(MyCoolApp());
@@ -38,20 +39,9 @@ class _MyCoolAppState extends State<MyCoolApp> {
             Question(
               questions.elementAt(_questionIndex),
             ),
-            RaisedButton(
-              child: const Text("Answer1"),
-              onPressed: _answerQuestion,
-            ),
-            RaisedButton(
-              child: const Text("Answer2"),
-              onPressed: () {
-                print("answer 2 chosen ");
-              },
-            ),
-            RaisedButton(
-              child: const Text("Answer3"),
-              onPressed: () => print('Answer 3 chosen'),
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
         floatingActionButton: FloatingActionButton(
