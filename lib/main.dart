@@ -18,33 +18,40 @@ class _MyCoolAppState extends State<MyCoolApp> {
     {
       'questionText': 'what\'s your favourite color?',
       'answers': [
-        {'Text': 'Black', 'score': 10},
-        {'Text': 'Red', 'score': 5},
-        {'Text': 'Green', 'score': 2},
-        {'Text': 'White', 'score': 8},
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 2},
+        {'text': 'White', 'score': 8},
       ],
     },
     {
       'questionText': 'what\'s your favourite animal?',
       'answers': [
-        {'Text': 'Marwen', 'score': 6},
-        {'Text': 'Fedi', 'score': 3},
-        {'Text': 'Mahdi', 'score': 10},
-        {'Text': 'Selma', 'score': 1},
+        {'text': 'Marwen', 'score': 6},
+        {'text': 'Fedi', 'score': 3},
+        {'text': 'Mahdi', 'score': 10},
+        {'text': 'Selma', 'score': 1},
       ],
     },
     {
       'questionText': 'Who\'s your favourtie instructor',
       'answers': [
-        {'Text': 'Max', 'score': 9},
-        {'Text': 'Wided', 'score': 3},
-        {'Text': 'radhaa', 'score': 6},
-        {'Text': 'Youssef', 'score': 1},
+        {'text': 'Max', 'score': 9},
+        {'text': 'Wided', 'score': 3},
+        {'text': 'radhaa', 'score': 6},
+        {'text': 'Youssef', 'score': 1},
       ],
     },
   ];
   var _questionIndex = 0;
   var _totalScore = 0;
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
 
   _answerQuestion(int score) {
     _totalScore = _totalScore + score;
@@ -71,7 +78,7 @@ class _MyCoolAppState extends State<MyCoolApp> {
                 answerQuestion: _answerQuestion,
                 questions: _questions,
                 questionIndex: _questionIndex)
-            : Result(_totalScore),
+            : Result(_totalScore, _resetQuiz),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: const Icon(Icons.add),
